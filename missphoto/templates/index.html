@@ -1,15 +1,15 @@
 {% extends "default.html" %}
 {% block content %}
     {% for pic in tl %}
-        <div class="tag">{% pic.tag %}</div>
-        <img src="{% pic.picture %}">
-        <div class="date">{% pic.date %}</div>
-        <div class="userName">{% pic.name %}</div>
+        <div class="tag">{{ pic.tag }}</div>
+        <img src="{{ pic.picture }}">
+        <div class="date">{{ pic.date }}</div>
+        <div class="userName">{{ pic.name }}</div>
         <form action="" method="POST">
             <button class="good" value="1">Good</button>
-            <div class="goods">{% pic.goods %}</div>
+            <div class="goods">{{ pic.goods }}</div>
             <button class="bad" value="0">bad</button>
-            <div class="bads">{% pic.bads %}</div>
+            <div class="bads">{{ pic.bads }}</div>
         </form>
     {% endfor %}
     <nav>
