@@ -21,6 +21,5 @@ urlpatterns = [
     url(r'^', include("missphoto.urls", namespace='missphoto')),
     url(r'^login/$', 'django.contrib.auth.views.login',
         {'template_name': 'login.html'}, name='login'),
-    url(r'^logout/$', 'django.contrib.auth.views.logout',
-        {'template_name': 'logout.html'}, name='logout'),
+    url(r'^logout/$', 'missphoto.auth.logout', name='logout'),
 ]
