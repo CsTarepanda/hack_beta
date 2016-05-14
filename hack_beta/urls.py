@@ -15,7 +15,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.shortcuts import redirect
-from missphoto import tl, mypage, postUpload, postReaction, TEST
+from missphoto import tl, mypage, postUpload, postReaction
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -27,6 +27,5 @@ urlpatterns = [
     url(r'^mypage/$', mypage.index, name='mypage'),
     url(r'^upload/$', postUpload.index, name='upload'),
     url(r'^reaction/$', postReaction.index, name='reaction'),
-    # url(r'^TEST/$', TEST.upload_file, name='upltes'),
     url(r'^logout/$', 'missphoto.auth.logout', name='logout'),
 ]
