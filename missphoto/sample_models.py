@@ -1,5 +1,5 @@
 fom django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.modls import AbstractUser
 
 
 class CustomUser(AbstractUser):
