@@ -1,4 +1,5 @@
 .idea/
 env/
 *.pyc
+missphoto/migrations/
 db.sqlite3
