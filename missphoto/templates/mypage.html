@@ -1,15 +1,15 @@
 {% extends "default.html" %}
 {% block content %}
-    {% for pic in tl %}
-        <div class="tag">{{ pic.tag }}</div>
-        <img src="{{ pic.picture }}">
+    {% for pic in models %}
+        <div class="tag">{{ pic.tag_set.all }}</div>
+        <img src="{{ pic.photosdata_set.all }}">
         <div class="date">{{ pic.date }}</div>
-        <div class="userName">{{ pic.name }}</div>
+        <div class="userName">{{ pic.user_id.name }}</div>
         <form action="" method="POST">
             <button class="good" value="1">Good</button>
-            <div class="goods">{{ pic.goods }}</div>
+            <div class="goods">{{ pic.good_set.all }}</div>
             <button class="bad" value="0">bad</button>
-            <div class="bads">{{ pic.bads }}</div>
+            <div class="bads">{{ pic.bad_set.all }}</div>
         </form>
 {#        TODO 次頁を取得する処理を書く#}
     {% endfor %}
