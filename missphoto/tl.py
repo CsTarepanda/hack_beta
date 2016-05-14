@@ -7,4 +7,6 @@ from django.core.urlresolvers import reverse
 
 
 def index(request):
-    return render_to_response('index.html')
+    response = json.dumps({'id': 12})
+    ctxt = RequestContext(request, {'data': response})
+    return render_to_response('index.html', ctxt)
