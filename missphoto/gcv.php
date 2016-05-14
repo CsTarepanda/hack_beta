@@ -3,7 +3,7 @@
 	$api_key = "AIzaSyAZ9fm1BLnv0NbRJ03TckS5QFXnmKvzQeo";
 
 	// 画像へのパス
-	$image_path = "./python.png" ;
+	$image_path = "$argv[1]" ;
 
 	// リクエスト用のJSONを作成
 	$json = json_encode( array(
