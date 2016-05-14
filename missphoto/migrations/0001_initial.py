@@ -13,55 +13,55 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Bads',
+            name='Bad',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
             ],
         ),
         migrations.CreateModel(
-            name='Goods',
+            name='Good',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
             ],
         ),
         migrations.CreateModel(
-            name='Photos_datas',
+            name='PhotosData',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
                 ('data', models.TextField()),
             ],
         ),
         migrations.CreateModel(
-            name='Posts',
+            name='Post',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
                 ('thema', models.CharField(max_length=200)),
                 ('created', models.DateField(auto_now=True)),
                 ('user_id', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.AddField(
-            model_name='photos_datas',
+            model_name='photosdata',
             name='post_id',
-            field=models.ForeignKey(to='missphoto.Posts'),
+            field=models.ForeignKey(to='missphoto.Post'),
         ),
         migrations.AddField(
-            model_name='goods',
+            model_name='good',
             name='post_id',
-            field=models.ForeignKey(to='missphoto.Posts'),
+            field=models.ForeignKey(to='missphoto.Post'),
         ),
         migrations.AddField(
-            model_name='goods',
+            model_name='good',
             name='user_id',
             field=models.ForeignKey(to=settings.AUTH_USER_MODEL),
         ),
         migrations.AddField(
-            model_name='bads',
+            model_name='bad',
             name='post_id',
-            field=models.ForeignKey(to='missphoto.Posts'),
+            field=models.ForeignKey(to='missphoto.Post'),
         ),
         migrations.AddField(
-            model_name='bads',
+            model_name='bad',
             name='user_id',
             field=models.ForeignKey(to=settings.AUTH_USER_MODEL),
         ),
