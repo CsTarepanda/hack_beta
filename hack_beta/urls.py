@@ -15,11 +15,17 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.shortcuts import redirect
+from missphoto import tl, mypage, postUpload, postReaction
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include("missphoto.urls", namespace='missphoto')),
+    # url(r'^', include("missphoto.urls", namespace='missphoto')),
     url(r'^login/$', 'django.contrib.auth.views.login',
         {'template_name': 'login.html'}, name='login'),
+
+    url(r'^$', tl.index, name='index'),
+    url(r'^mypage/$', mypage.index, name='mypage'),
+    url(r'^upload/$', postUpload.index, name='upload'),
+    url(r'^reaction/$', postReaction.index, name='reaction'),
     url(r'^logout/$', 'missphoto.auth.logout', name='logout'),
 ]

@@ -40,7 +40,7 @@ INSTALLED_APPS = (
     'missphoto',
 )
 
-LOGIN_REDIRECT_URL = "/missphoto/"
+LOGIN_REDIRECT_URL = "/"
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
