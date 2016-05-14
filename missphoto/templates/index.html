@@ -1,15 +1,19 @@
 {% extends "default.html" %}
 {% block content %}
+    <div row>
     {% for pic in tl %}
-        <div class="tag">{{ pic.tag }}</div>
-        <img src="{{ pic.picture }}">
-        <div class="date">{{ pic.date }}</div>
-        <div class="userName">{{ pic.name }}</div>
-        <form action="" method="POST">
-            <button class="good" value="1">Good</button>
-            <div class="goods">{{ pic.goods }}</div>
-            <button class="bad" value="0">bad</button>
-            <div class="bads">{{ pic.bads }}</div>
-        </form>
+        <div class="container col-lg-4">
+            <div class="tag">{{ pic.tag }}</div>
+            <img src="{{ pic.picture }}">
+            <div class="date">{{ pic.date }}</div>
+            <div class="userName">{{ pic.name }}</div>
+            <form action="" method="POST">
+                <button class="good" value="1">Good</button>
+                <div class="goods">{{ pic.goods }}</div>
+                <button class="bad" value="0">bad</button>
+                <div class="bads">{{ pic.bads }}</div>
+            </form>
+        </div>
     {% endfor %}
+    </div>
 {% endblock %}

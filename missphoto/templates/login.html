@@ -1,11 +1,17 @@
 {% extends "default.html" %}
 {% block title %}LogIn{% endblock %}
 {% block content %}
-    <h1>LOGIN</h1>
-    <form action="/login" method="POST">
-        {% csrf_token %}
-        <input type="text">
-        <input type="password">
-        <button type="submit">LOGIN</button>
-    </form>
+    <div class="container">
+        <div class="row text-center">
+            <h1>LOGIN</h1>
+           <form action="/login" method="POST">
+             {% csrf_token %}
+             <h2>NAME</h2>
+             <input type="text">
+             <h2>PASSWORD</h2>
+             <input type="password">
+             <button type="submit">LOGIN</button>
+          </form>
+        </div>
+    </div>
 {% endblock %}

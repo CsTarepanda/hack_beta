@@ -39,9 +39,9 @@
               <ul class="nav navbar-nav">
 {#                <li><a href="./TOUKOU.html" class="btn" data-toggle="modal" data-target="#myModal">#}
 {#                    TOUKOU</a></li>#}
-                  <li><a type="button" class="btn" data-toggle="modal" data-target="#myModal">
+                  <li><a type="" data-toggle="modal" data-target="#myModal">
                       TOUKOU
-                  </a> </li>
+                  </a></li>
                   <!-- Modal -->
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                   <div class="modal-dialog" role="document">
@@ -66,9 +66,9 @@
                   </div>
                 </div>
               </ul>
-              <ul class="nav navbar-nav navbar-right">
+              <ul class="nav navbar-nav navbar-right center-block">
                   {% if user.id == null %}
-                      <li><a href="./loin.html">Login</a></li>
+                      <li><a href="./login.html">Login</a></li>
                   {% else %}
                       <li><a href="logout.html">Logout</a></li>
                   {% endif %}
