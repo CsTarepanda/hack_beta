@@ -1,10 +1,24 @@
 {% extends "default.html" %}
 {% block content %}
+
     {% for pic in tl %}
-        <div class="tag">{{ pic.tag }}</div>
+        <div class="tag">{{ pic.tag_set.all }}</div>
         <img src="{{ pic.picture }}">
         <div class="date">{{ pic.date }}</div>
         <div class="userName">{{ pic.name }}</div>
+
+
+        <form action="/reaction/good" method="post">
+          {% csrf_token %}
+          <input type="submit" value="good">
+          <input type="hidden" name="post_id" value="{{ pic.id }}">
+        </form>
+        <form action="/reaction/bad" method="post">
+          {% csrf_token %}
+          <input type="submit" value="bad">
+          <input type="hidden" name="post_id" value="{{ pic.id }}">
+        </form>
+
         <form action="" method="POST">
             <button class="good" value="1">Good</button>
             <div class="goods">{{ pic.goods }}</div>

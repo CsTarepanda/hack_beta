@@ -9,7 +9,7 @@ from django.core import serializers
 
 def index(request):
     tl = Post.objects.all()
-    for i in tl:
-        i.tag = i.tag_set.all()
+    # for i in tl:
+    #     i.tag = i.tag_set.all()
     return render_to_response('index.html',
             RequestContext(request, { 'tl': tl }))
