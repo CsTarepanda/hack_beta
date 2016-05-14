@@ -26,6 +26,15 @@
             <div class="bads">{{ pic.bads }}</div>
         </form>
     {% endfor %}
+
+    {# file upload sample #}
+    <form action="/upload/" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input name="test" type="file">
+      <input type="submit">
+    </form>
+    {# file upload sample #}
+
     <nav>
         <ul class="pagination">
             <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
