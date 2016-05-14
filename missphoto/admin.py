@@ -1,10 +1,9 @@
 from django.contrib import admin
 # Register your models here.
 
-from .models import Posts
-from .models import Posts, Goods, Bads, Photos_datas
+from .models import Post, Good, Bad, PhotosData
 
-admin.site.register(Posts)
-admin.site.register(Goods)
-admin.site.register(Bads)
-admin.site.register(Photos_datas)
+admin.site.register(Post)
+admin.site.register(Good)
+admin.site.register(Bad)
+admin.site.register(PhotosData)
