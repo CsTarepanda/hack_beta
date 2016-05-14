@@ -4,9 +4,9 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.shortcuts import redirect
 from django.core.urlresolvers import reverse
-
+from missphoto.models import *
 
 def index(request):
-    response = json.dumps({'id': 12})
-    ctxt = RequestContext(request, {'data': response})
-    return render_to_response('index.html', ctxt)
+    tl = Post.objects.all()
+    return render_to_response('index.html',
+            RequestContext(request, { 'tl': tl }))
