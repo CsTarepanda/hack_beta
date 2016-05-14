@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
+<html>
+<head lang="ja">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,8 +11,6 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="../static/css/bootstrap-theme.min.css">
     <!-- Latest compiled and minified JavaScript -->
-    <script src="../static/js/bootstrap.min.js"></script>
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -24,10 +22,36 @@
 <body>
     <header>
         <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Brand</a>
+            </div>
 
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a href="./TOUKOU.html">TOUKOU</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                  {% if user == null %}
+                    <li><a href="./loin.html">Login</a></li>
+                  {% else %}
+                      <li><a href="logout.html">Logout</a></li>
+                  {% endif %}
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
         </nav>
-    </header>
+     </header>
     {% block content %}{% endblock %}
-<script src="../static/js/jquery-2.2.3.min.js"></script>
+    <script src="../static/js/jquery-2.2.3.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
 </body>
 </html>
