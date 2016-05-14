@@ -15,16 +15,25 @@
                 </a>
                 <div class="date">{{ pic }}</div>
                 <div class="userName">{{ pic.user_id }}</div>
-                  <form action="/reaction/good" method="post">
-                      {% csrf_token %}
-                      <input type="submit" value="good">
-                      <input type="hidden" name="post_id" value="{{ pic.id }}">
-                    </form>
-                    <form action="/reaction/bad" method="post">
-                      {% csrf_token %}
-                      <input type="submit" value="bad">
-                      <input type="hidden" name="post_id" value="{{ pic.id }}">
-                    </form>
+                {% if user == null %}
+                {% else %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form action="/reaction/good/" method="post">
+                          {% csrf_token %}
+                          <button value="good" type="submit">Good <span class="badge">{{ pic.good_set.all.count }}</span></button>
+                          <input type="hidden" name="post_id" value="{{ pic.id }}">
+                         </form>
+                        </div>
+                        <div class="col-md-6">
+                            <form action="/reaction/bad/" method="post">
+                        {% csrf_token %}
+                        <button value="bad" type="submit">Bad <span class="badge">{{ pic.bad_set.all.count }}</span></button>
+                        <input type="hidden" name="post_id" value="{{ pic.id }}">
+                     </form>
+                        </div>
+                    </div>
+                {% endif %}
                 </div>
             </div>
         {% endfor %}
