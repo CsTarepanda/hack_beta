@@ -1,5 +1,6 @@
 {% extends "default.html" %}
 {% block content %}
+<<<<<<< HEAD
     <div row>
     {% for pic in tl %}
         <div class="container col-lg-4">
@@ -20,3 +21,42 @@
     {% endfor %}
     </div>
 {% endblock %}
+=======
+
+    {% for pic in tl %}
+        <div class="tag">{{ pic.tag_set.all }}</div>
+        <img src="{{ pic.picture }}">
+        <div class="date">{{ pic.date }}</div>
+        <div class="userName">{{ pic.name }}</div>
+
+
+        <form action="/reaction/good" method="post">
+          {% csrf_token %}
+          <input type="submit" value="good">
+          <input type="hidden" name="post_id" value="{{ pic.id }}">
+        </form>
+        <form action="/reaction/bad" method="post">
+          {% csrf_token %}
+          <input type="submit" value="bad">
+          <input type="hidden" name="post_id" value="{{ pic.id }}">
+        </form>
+
+        <form action="" method="POST">
+            <button class="good" value="1">Good</button>
+            <div class="goods">{{ pic.goods }}</div>
+            <button class="bad" value="0">bad</button>
+            <div class="bads">{{ pic.bads }}</div>
+        </form>
+    {% endfor %}
+    <nav>
+        <ul class="pagination">
+            <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+>>>>>>> master
