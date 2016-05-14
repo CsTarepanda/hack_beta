@@ -18,3 +18,6 @@ def login(request):
     else:
         return redirect("/login/")
         # Return an 'invalid login' error message.
+
+def logout(request):
+    return redirect("/login")
