@@ -1,48 +1,42 @@
 {% extends "default.html" %}
 {% block content %}
-
-    {% for pic in tl %}
-        <div class="tag">{{ pic.tag_set.all }}</div>
-        <img src="{{ pic.picture }}">
-        <div class="date">{{ pic.date }}</div>
-        <div class="userName">{{ pic.name }}</div>
-
-
-        <form action="/reaction/good" method="post">
-          {% csrf_token %}
-          <input type="submit" value="good">
-          <input type="hidden" name="post_id" value="{{ pic.id }}">
-        </form>
-        <form action="/reaction/bad" method="post">
-          {% csrf_token %}
-          <input type="submit" value="bad">
-          <input type="hidden" name="post_id" value="{{ pic.id }}">
-        </form>
-
-        <form action="" method="POST">
-            <button class="good" value="1">Good</button>
-            <div class="goods">{{ pic.goods }}</div>
-            <button class="bad" value="0">bad</button>
-            <div class="bads">{{ pic.bads }}</div>
-        </form>
-    {% endfor %}
-
-    {# file upload sample #}
-    <form action="/upload/" method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      <input name="test" type="file">
-      <input type="submit">
-    </form>
-    {# file upload sample #}
-
-    <nav>
-        <ul class="pagination">
-            <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-        </ul>
-    </nav>
+    <div class="text-center">
+        <div class="row center-block">
+            <div class="col-lg-1"></div>
+        {% for pic in tl %}
+            <div class="panel-default panel col-lg-3 col-xs-12">
+                <div class="panel-body">
+                <div class="tag">{% for tag in pic.tag_set.all %}
+                    {{ tag.name }}
+                {% endfor %}
+                </div>
+                <a href="#" class="thumbnail">
+                    <img src="../static/photos/{{ pic.photosdata_set.first }}">
+                </a>
+                <div class="date">{{ pic }}</div>
+                <div class="userName">{{ pic.user_id }}</div>
+                {% if user == null %}
+                {% else %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form action="/reaction/good/" method="post">
+                          {% csrf_token %}
+                          <button value="good" type="submit">Good <span class="badge">{{ pic.good_set.all.count }}</span></button>
+                          <input type="hidden" name="post_id" value="{{ pic.id }}">
+                         </form>
+                        </div>
+                        <div class="col-md-6">
+                            <form action="/reaction/bad/" method="post">
+                        {% csrf_token %}
+                        <button value="bad" type="submit">Bad <span class="badge">{{ pic.bad_set.all.count }}</span></button>
+                        <input type="hidden" name="post_id" value="{{ pic.id }}">
+                     </form>
+                        </div>
+                    </div>
+                {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
 {% endblock %}
