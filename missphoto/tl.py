@@ -9,7 +9,7 @@ from django.core import serializers
 
 def index(request):
     tl = Post.objects.all()
-    posts = Post.objects.filter(user_id=request.user)
+    posts = Post.objects.all()
     for i in posts:
         i.score = Good.objects.filter(post_id=i).count() - Bad.objects.filter(post_id=i).count()
     model = sorted(posts, key=lambda x: x.score)
