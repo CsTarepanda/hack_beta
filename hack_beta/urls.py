@@ -14,10 +14,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.shortcuts import redirect
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^missphoto/', include("missphoto.urls", namespace='missphoto')),
+    url(r'^', include("missphoto.urls", namespace='missphoto')),
     url(r'^login/$', 'django.contrib.auth.views.login',
         {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout',
