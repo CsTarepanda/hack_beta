@@ -9,7 +9,14 @@ from django.core import serializers
 
 def index(request):
     tl = Post.objects.all()
+    posts = Post.objects.filter(user_id=request.user)
+    for i in posts:
+        i.score = Good.objects.filter(post_id=i).count() - Bad.objects.filter(post_id=i).count()
+    model = sorted(posts, key=lambda x: x.score)
     # for i in tl:
     #     i.tag = i.tag_set.all()
     return render_to_response('index.html',
-            RequestContext(request, { 'tl': tl }))
+            RequestContext(request, {
+                'tl': tl,
+                'model': model
+                }))
