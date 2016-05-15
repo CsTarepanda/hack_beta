@@ -7,11 +7,11 @@
            <form action="/register/" method="POST">
              {% csrf_token %}
              <h2>NAME</h2>
-             <input name="username" type="text">
+             <input name="username" type="text" placeholder="name">
              <h2>PASSWORD</h2>
-             <input name="password" type="password">
-             <h2>REPASSWORD</h2>
-             <input name="repassword" type="password">
+             <input name="password" type="password" placeholder="password">
+             {# <h2>REPASSWORD</h2> #}
+             {# <input name="repassword" type="password"> #}
              <button type="submit">REGISTER</button>
           </form>
         </div>

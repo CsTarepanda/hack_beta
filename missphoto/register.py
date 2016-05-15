@@ -14,4 +14,4 @@ def index(request):
         user = User.objects.create_user(username=request.POST.get("username"), password=request.POST.get("password"))
         print(user)
         return redirect(reverse("register"))
-    return redirect(reverse("index"))
+    return redirect(reverse("login"))

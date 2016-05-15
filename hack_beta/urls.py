@@ -15,7 +15,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.shortcuts import redirect
-from missphoto import tl, mypage, postUpload, postReaction
+from missphoto import tl, mypage, postUpload, postReaction, register
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
