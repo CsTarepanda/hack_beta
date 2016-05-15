@@ -14,31 +14,7 @@
 				) ,
 				"features" => array(
 					array(
-						"type" => "FACE_DETECTION" ,
-						"maxResults" => 3 ,
-					) ,
-					array(
-						"type" => "LANDMARK_DETECTION" ,
-						"maxResults" => 3 ,
-					) ,
-					array(
-						"type" => "LOGO_DETECTION" ,
-						"maxResults" => 3 ,
-					) ,
-					array(
 						"type" => "LABEL_DETECTION" ,
-						"maxResults" => 3 ,
-					) ,
-					array(
-						"type" => "TEXT_DETECTION" ,
-						"maxResults" => 3 ,
-					) ,
-					array(
-						"type" => "SAFE_SEARCH_DETECTION" ,
-						"maxResults" => 3 ,
-					) ,
-					array(
-						"type" => "IMAGE_PROPERTIES" ,
 						"maxResults" => 3 ,
 					) ,
 				) ,
