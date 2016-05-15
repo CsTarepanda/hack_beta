@@ -37,6 +37,10 @@ def post(request):
         result = json.loads(result)
         result = result.get("responses")[0].get("labelAnnotations")
         result = [x.get("description") for x in result]
+        res = []
+        for i in result:
+            res.append(subprocess.check_output(["php", "missphoto/trans.php", i]).decode("utf-8"))
+        result = res
         # - - -
         print(result)
         for i in result:
