@@ -22,6 +22,7 @@ def login(request):
                     )
         print("ok")
         print(user)
+        user = user[0]
         user = authenticate(username=username, password=password)
         if user is not None:
             if user.is_active:
