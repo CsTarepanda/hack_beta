@@ -19,7 +19,7 @@
                                 <div class="col-md-6">
                                     <form action="/reaction/good/" method="post">
                                         {% csrf_token %}
-                                        <button type="submit" class="btn btn-default">いいね <span
+                                        <button type="submit" class="btn btn-danger">いいね <span
                                                 class="badge">{{ pic.good_set.all.count }}</span></button>
                                         <input type="hidden" name="post_id" value="{{ pic.id }}">
                                     </form>
@@ -27,7 +27,7 @@
                                 <div class="col-md-6">
                                     <form action="/reaction/bad/" method="post">
                                         {% csrf_token %}
-                                        <button type="submit" class="btn btn-default">ん? <span
+                                        <button type="submit" class="btn btn-primary">ん? <span
                                                 class="badge">
                                             {{ pic.bad_set.all.count }}
                                         </span></button>
@@ -39,7 +39,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <h4>
-                                    <span class="label label-primary">
+                                    <span class="label label-danger">
                                         いいね:
                                     {{ pic.good_set.all.count }}
                                         </span>
@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <h4>
-                                    <span class="label label-danger">
+                                    <span class="label label-primary">
                                         ん?:
                                     {{ pic.bad_set.all.count }}
                                     </span>
