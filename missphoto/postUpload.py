@@ -38,6 +38,7 @@ def post(request):
         result = result.get("responses")[0].get("labelAnnotations")
         result = [x.get("description") for x in result]
         # - - -
+        print(result)
         for i in result:
             Tag(post_id=post, name=i).save()
         PhotosData(post_id=post, name="Gorilla").save()
