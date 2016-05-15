@@ -1,0 +1,18 @@
+{% extends "default.html" %}
+
+
+{% block content %}
+<form action="/upload/" method="post">
+  {% csrf_token %}
+  <input type="submit" value="yes">
+  <input name="yesno" type="hidden" value="yes">
+  <input name="post_id" type="hidden" value="{{post_id}}">
+</form>
+
+<form action="/upload/" method="post">
+  {% csrf_token %}
+  <input type="submit" value="no">
+  <input name="yesno" type="hidden" value="no">
+  <input name="post_id" type="hidden" value="{{post_id}}">
+</form>
+{% endblock %}
