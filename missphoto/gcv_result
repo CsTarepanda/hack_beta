@@ -3,19 +3,19 @@
     {
       "labelAnnotations": [
         {
-          "mid": "/m/01g317",
-          "description": "person",
-          "score": 0.90274578
+          "mid": "/m/02wbm",
+          "description": "food",
+          "score": 0.95133322
         },
         {
-          "mid": "/m/099md",
-          "description": "soldier",
-          "score": 0.70312929
+          "mid": "/m/02q08p0",
+          "description": "dish",
+          "score": 0.9490571
         },
         {
-          "mid": "/m/083kb",
-          "description": "weapon",
-          "score": 0.59972054
+          "mid": "/m/0hr1s_w",
+          "description": "curry",
+          "score": 0.88361222
         }
       ]
     }
@@ -25,7 +25,7 @@
 Content-Type: application/json; charset=UTF-8
 Vary: X-Origin
 Vary: Referer
-Date: Sun, 15 May 2016 00:47:40 GMT
+Date: Sun, 15 May 2016 04:47:28 GMT
 Server: ESF
 Cache-Control: private
 X-XSS-Protection: 1; mode=block

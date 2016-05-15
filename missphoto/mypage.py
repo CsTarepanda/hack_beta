@@ -5,9 +5,11 @@ from django.template import RequestContext
 from django.shortcuts import redirect
 from django.core.urlresolvers import reverse
 from missphoto.models import *
+from django.contrib.auth.models import User
 
 
 def index(request):
+    # User(username="test", password=Vgc)
     #response = json.dumps({'tags_id': tags_id})
     #return HttpResponse(response, content_type="application/json")
     posts = Post.objects.filter(user_id=request.user)
