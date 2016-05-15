@@ -7,7 +7,7 @@
                 <div class="panel-default panel col-lg-3 col-xs-12">
                     <div class="panel-body">
                         <div class="tag">{% for tag in pic.tag_set.all %}
-                            {{ tag.name }}
+                            <span class="label label-info">{{ tag.name }}</span>
                         {% endfor %}
                         </div>
                         <a href="#" class="thumbnail">
