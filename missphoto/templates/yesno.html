@@ -2,39 +2,35 @@
 
 
 {% block content %}
-<div class="row">
-  {% for tag in tags %}
-  <div class="col-sm-4">
-    <div class="panel panel-info">
-      <div class="panel-heading text-center" style="font-size:40px">
-        {{ tag }}
-      </div>
+    <h1 class="alert-info text-center">UPLOADしますか？</h1>
+    <div class="row">
+        <div class="col-lg-offset-2 col-sm-4">
+            <a href="#" class="thumbnail">
+                <img src="../static/photos/{{ post.photosdata_set.first }}">
+            </a>
+        </div>
+        <div class="col-sm-4">
+            {% for tag in tags %}
+                <h1 class="alert-info text-center">{{ tag.name }}</h1>
+            {% endfor %}
+        </div>
     </div>
-  </div>
-  {% endfor %}
-</div>
-<div class="row">
-  <div class="col-sm-offset-4 col-sm-4">
-    <a href="#" class="thumbnail">
-      <img src="../static/photos/{{ post.photosdata_set.first }}">
-    </a>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-offset-4 col-sm-2">
-    <form action="/upload/" method="post">
-      {% csrf_token %}
-      <input class="btn btn-danger btn-lg" type="submit" value="  yes  ">
-      <input name="yesno" type="hidden" value="yes">
-      <input name="post_id" type="hidden" value="{{post.id}}">
-    </form>
-  </div>
-  <div class="col-sm-2">
-    <form action="/upload/" method="post">
-      {% csrf_token %}
-      <input class="btn btn-primary btn-lg" type="submit" value="  no  ">
-      <input name="yesno" type="hidden" value="no">
-      <input name="post_id" type="hidden" value="{{post.id}}">
-    </form>
-  </div>
-</div>{% endblock %}
+
+    <div class="row">
+        <div class="col-sm-offset-4 col-sm-2">
+            <form action="/upload/" method="post">
+                {% csrf_token %}
+                <input class="btn btn-danger btn-lg" type="submit" value="  yes  ">
+                <input name="yesno" type="hidden" value="yes">
+                <input name="post_id" type="hidden" value="{{ post.id }}">
+            </form>
+        </div>
+        <div class="col-sm-2">
+            <form action="/upload/" method="post">
+                {% csrf_token %}
+                <input class="btn btn-primary btn-lg" type="submit" value="  no  ">
+                <input name="yesno" type="hidden" value="no">
+                <input name="post_id" type="hidden" value="{{ post.id }}">
+            </form>
+        </div>
+    </div>{% endblock %}
