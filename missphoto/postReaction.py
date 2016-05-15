@@ -26,7 +26,7 @@ def good_post(request, post_data):
 
 def bad_post(request, post_data):
     post_id = post_data.get("post_id")
-    bad = Bad.objects.filter(user_id=request.user)
+    bad = Bad.objects.filter(user_id=request.user).filter(post_id=post_id)
     if bad.exists():
         bad[0].delete()
         return redirect(reverse("index"))
