@@ -3,7 +3,7 @@ from django.template import RequestContext
 from django.shortcuts import redirect
 from django.core.urlresolvers import reverse
 
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, views
 
 def login(request):
     username = request.POST['username']
@@ -20,4 +20,5 @@ def login(request):
         # Return an 'invalid login' error message.
 
 def logout(request):
+    views.logout(request)
     return redirect("/login")
