@@ -8,8 +8,8 @@ from missphoto.models import *
 from django.core import serializers
 
 def index(request):
-    tl = reversed(Post.objects.all())
-    posts = Post.objects.all()
+    tl = reversed(Post.objects.filter(upload_flag=True))
+    posts = Post.objects.filter(upload_flag=True)
     for i in posts:
         i.score = Good.objects.filter(post_id=i).count() - Bad.objects.filter(post_id=i).count()
     model = sorted(posts, key=lambda x: x.score)

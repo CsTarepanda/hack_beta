@@ -19,7 +19,7 @@
                                 <div class="col-md-6">
                                     <form action="/reaction/good/" method="post">
                                         {% csrf_token %}
-                                        <button value="good" type="submit" class="btn btn-default">Good <span
+                                        <button type="submit" class="btn btn-default">いいね <span
                                                 class="badge">{{ pic.good_set.all.count }}</span></button>
                                         <input type="hidden" name="post_id" value="{{ pic.id }}">
                                     </form>
@@ -27,7 +27,7 @@
                                 <div class="col-md-6">
                                     <form action="/reaction/bad/" method="post">
                                         {% csrf_token %}
-                                        <button value="bad" type="submit" class="btn btn-default">Bad <span
+                                        <button type="submit" class="btn btn-default">ん? <span
                                                 class="badge">
                                             {{ pic.bad_set.all.count }}
                                         </span></button>
@@ -40,7 +40,7 @@
                                 <div class="col-md-6">
                                     <h4>
                                     <span class="label label-primary">
-                                        GOOD:
+                                        いいね:
                                     {{ pic.good_set.all.count }}
                                         </span>
                                     </h4>
@@ -48,7 +48,7 @@
                                 <div class="col-md-6">
                                     <h4>
                                     <span class="label label-danger">
-                                        BAD:
+                                        ん?:
                                     {{ pic.bad_set.all.count }}
                                     </span>
                                     </h4>
