@@ -25,6 +25,7 @@ urlpatterns = [
 
     url(r'^$', tl.index, name='index'),
     url(r'^mypage/$', mypage.index, name='mypage'),
+    url(r'^register/$', register.index, name='register'),
     url(r'^upload/$', postUpload.index, name='upload'),
     url(r'^reaction/(good|bad)/$', postReaction.index, name='reaction'),
     url(r'^logout/$', 'missphoto.auth.logout', name='logout'),
