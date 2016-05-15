@@ -56,14 +56,18 @@ def post(request):
             result = res
             # - - -
             print(result)
+            tags = []
             for i in result:
-                Tag(post_id=post, name=i).save()
+                tag = Tag(post_id=post, name=i)
+                tag.save()
+                tags.append(tag)
             PhotosData(post_id=post, name=filename).save()
         except:
             return render_to_response("disconnect.html", RequestContext(request, {
                 }))
     return render_to_response("yesno.html", RequestContext(request, {
-        "post_id": post.id
+        "post": post,
+        "tags": tags
         }))
     # return redirect(reverse("upload"))
 

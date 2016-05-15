@@ -6,13 +6,13 @@
   {% csrf_token %}
   <input type="submit" value="yes">
   <input name="yesno" type="hidden" value="yes">
-  <input name="post_id" type="hidden" value="{{post_id}}">
+  <input name="post_id" type="hidden" value="{{post.id}}">
 </form>
 
 <form action="/upload/" method="post">
   {% csrf_token %}
   <input type="submit" value="no">
   <input name="yesno" type="hidden" value="no">
-  <input name="post_id" type="hidden" value="{{post_id}}">
+  <input name="post_id" type="hidden" value="{{post.id}}">
 </form>
 {% endblock %}
