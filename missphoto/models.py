@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 
 class Post(models.Model):
     user_id = models.ForeignKey(User)
+    upload_flag = models.BooleanField(default=False)
     created = models.DateField(auto_now=True)
 
     def __str__(self):
