@@ -14,7 +14,25 @@
                         </a>
                         <div class="date">{{ pic }}</div>
                         <div class="userName">{{ pic.user_id }}</div>
-                        {% if user == null %}
+                        {% if user %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4>
+                                    <span class="label label-primary">
+                                        GOOD:
+                                    {{ pic.good_set.all.count }}
+                                        </span>
+                                    </h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>
+                                    <span class="label label-danger">
+                                        BAD:
+                                    {{ pic.bad_set.all.count }}
+                                    </span>
+                                    </h4>
+                                </div>
+                            </div>
                         {% else %}
                             <div class="row">
                                 <div class="col-md-6">
@@ -28,7 +46,8 @@
                                 <div class="col-md-6">
                                     <form action="/reaction/bad/" method="post">
                                         {% csrf_token %}
-                                        <button value="bad" type="submit" class="btn btn-default">Bad <span class="badge">
+                                        <button value="bad" type="submit" class="btn btn-default">Bad <span
+                                                class="badge">
                                             {{ pic.bad_set.all.count }}
                                         </span></button>
                                         <input type="hidden" name="post_id" value="{{ pic.id }}">
